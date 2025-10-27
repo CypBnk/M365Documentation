@@ -29,15 +29,15 @@ Function Get-CPPrinter(){
         $DocSecSingle.SubSections = @()
         $DocSecSingle.Transpose = $true
 
-        $DocSecSingleShare = New-Object DocSection
-        $DocSecSingleShare.Title = Shares
+    $DocSecSingleShare = New-Object DocSection
+    $DocSecSingleShare.Title = "Shares"
         $DocSecSingleShare.Objects = (Invoke-DocGraph -Path "/print/printers/$($printer.id)/shares").Value
         $DocSecSingleShare.SubSections = @()
         $DocSecSingleShare.Transpose = $false
         $DocSecSingle.SubSections += $DocSecSingleShare
 
-        $DocSecSingleCon = New-Object DocSection
-        $DocSecSingleCon.Title = Connectors
+    $DocSecSingleCon = New-Object DocSection
+    $DocSecSingleCon.Title = "Connectors"
         $DocSecSingleCon.Objects = (Invoke-DocGraph -Path "/print/printers/$($printer.id)/connectors").Value
         $DocSecSingleCon.SubSections = @()
         $DocSecSingleCon.Transpose = $false

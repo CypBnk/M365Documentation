@@ -19,7 +19,9 @@ Function Get-MIPLabel(){
     $DocSec.Title = "Labels"
     $DocSec.Text = "Lists all labels that have been configured in Microsoft Information Protection."
     Write-Warning -Message "InformationProtection only documents all labels when executed with an app registration and not when running interactive."
-    $DocSec.Objects = (Invoke-DocGraph -Path "/informationProtection/policy/labels").Value
+    # Use the /informationProtection/labels endpoint which is the documented path for labels
+    # If labels are only available in beta for some tenants, callers can set the -Beta switch in Invoke-DocGraph where needed.
+    $DocSec.Objects = (Invoke-DocGraph -Path "/informationProtection/labels" -Beta).Value
     $DocSec.Transpose = $false
     if($null -eq $DocSec.Objects){
         return $null
