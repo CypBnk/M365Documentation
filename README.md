@@ -1,6 +1,14 @@
 # Automatic Microsoft 365 Documentation
 
-<img align="right" src="https://github.com/ThomasKur/M365Documentation/raw/main/Logo/M365DocumentationLogo.png" width="300px" alt="Automatic M365 Documentation Logo">Automatic Microsoft 365 Documentation to simplify the life of admins and consultants. You can automatically document systems like:
+> **⭐ ORIGINAL PROJECT:** This is a fork of [M365Documentation by Thomas Kurth](https://github.com/ThomasKur/M365Documentation)  
+> **🙏 Please visit and support the original project:** <https://github.com/ThomasKur/M365Documentation>  
+> **Original Author:** Thomas Kurth ([WorkplaceNinjas](https://workplaceninja.cloud/))
+
+---
+
+<img align="right" src="https://github.com/ThomasKur/M365Documentation/raw/main/Logo/M365DocumentationLogo.png" width="300px" alt="Automatic M365 Documentation Logo">
+
+Automatic Microsoft 365 Documentation to simplify the life of admins and consultants. You can automatically document systems like:
 
 - Microsoft Intune
 - Microsoft Entra ID (Azure AD)
@@ -23,6 +31,23 @@ This is the successor to the IntuneDocumentation module and has much more option
 
 Through the new architecture much other features will follow in the near future.
 
+## About This Fork
+
+This fork includes bug fixes and enhancements while maintaining full compatibility with the original module:
+
+- ✅ Fixed Information Protection labels endpoint issues
+- ✅ Fixed Cloud Print printer documentation errors
+- ✅ Added comprehensive unit testing framework
+- ✅ Added non-interactive build script for CI/CD
+- ✅ Improved error handling and tenant compatibility
+
+**See [CHANGELOG.md](CHANGELOG.md) for detailed information about changes.**
+
+**Fork Maintainer:** Marc Holländer  
+**Version:** 3.5.2
+
+---
+
 ## Usage
 
 ### Installation
@@ -37,7 +62,7 @@ Install-Module M365Documentation
 
 ```
 
-*PowerShell 7* is required.
+_PowerShell 7_ is required.
 
 ### Basic Usage to create docx
 
@@ -48,7 +73,7 @@ This section covers basic functionality for interactive usage. Advanced use case
 # Connect to your tenant
 Connect-M365Doc
 
-# Collect information 
+# Collect information
 $Selection = Get-M365DocValidSection | Out-GridView -OutputMode Multiple
 $Sections = $Selection | Select-Object -ExpandProperty SectionName
 $Components = $Selection | Select-Object -ExpandProperty Component -Unique
@@ -62,7 +87,7 @@ $doc | Write-M365DocWord -FullDocumentationPath "c:\temp\$($doc.CreationDate.ToS
 
 ## Sections which you can choose from
 
-You can now use the *Get-M365DocValidSection -Components Intune* command to list the complete list of valid sections.
+You can now use the _Get-M365DocValidSection -Components Intune_ command to list the complete list of valid sections.
 
 _Component: AzureAD_
 AADAdministrativeUnit
@@ -177,22 +202,45 @@ The following entities are documented:
 
 ## Issues / Feedback
 
-For any issues or feedback related to this module, please register for GitHub, and post your inquiry to this project's issue tracker.
+For issues specific to this fork, please register for GitHub and post your inquiry to this project's issue tracker.
 
-## Thanks to
+For issues with the original module, please visit the [original project's issue tracker](https://github.com/ThomasKur/M365Documentation/issues).
 
-@NicoSchmidtbauer for all the contributions around HTML output and other fixes and improvements
+---
 
-@MEM_MVP for the continuous feedback and 10000 translations!!!! Thank you!
+## Thanks & Contributors
 
-@Microsoftgraph for the PowerShell Examples: <https://github.com/microsoftgraph/powershell-intune-samples>
+### Original Project Creator
 
-@PrzemyslawKlys for the PSWriteWord Module, which enables the creation of the Word file. <https://github.com/EvotecIT/PSWriteOffice>
+**🌟 [Thomas Kurth](https://github.com/ThomasKur) (WorkplaceNinjas)** - Creator and maintainer of M365Documentation
 
-@MScholtes for the Transponse-Object example <https://github.com/MScholtes/TechNet-Gallery>
+- Original repository: <https://github.com/ThomasKur/M365Documentation>
+- Website: <https://workplaceninja.cloud/>
+- Company: ![baseVISION](https://www.basevision.ch/wp-content/uploads/2015/12/baseVISION-Logo_RGB.png)
 
-@ylepine for the contribution to support Intune Settings catalog
+### Original Project Contributors
 
-@johofer contribution to remove base64 encoded images from the documentation.
+Special thanks to all contributors to the original M365Documentation project:
 
-![Created by baseVISION](https://www.basevision.ch/wp-content/uploads/2015/12/baseVISION-Logo_RGB.png)
+- **@NicoSchmidtbauer** - Contributions around HTML output and other fixes and improvements
+- **@MEM_MVP** - Continuous feedback and 10,000+ translations
+- **@ylepine** - Contribution to support Intune Settings catalog
+- **@johofer** - Contribution to remove base64 encoded images from the documentation
+
+### Dependencies & Acknowledgments
+
+- **@Microsoftgraph** - PowerShell Examples: <https://github.com/microsoftgraph/powershell-intune-samples>
+- **@PrzemyslawKlys** - PSWriteWord Module for Word file creation: <https://github.com/EvotecIT/PSWriteOffice>
+- **@MScholtes** - Transpose-Object example: <https://github.com/MScholtes/TechNet-Gallery>
+
+### Fork Maintainer
+
+**Marc Holländer** - Bug fixes, testing framework, and enhancements (this fork)
+
+---
+
+## License
+
+This project maintains the same license as the original M365Documentation project.
+
+**Original Project:** Copyright (c) 2025 Thomas Kurth. All rights reserved.
